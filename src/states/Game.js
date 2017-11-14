@@ -73,6 +73,7 @@ export default class extends Phaser.State {
     game.physics.enable([this.wallTop, this.wallRight, this.wallBottom], Phaser.Physics.ARCADE);
 
     this.wallTop.body.immovable = true;
+    this.wallTop.body.moves = false;
     this.wallTop.body.allowGravity = false;
 
     this.wallRight.body.immovable = true;
@@ -119,7 +120,10 @@ export default class extends Phaser.State {
     game.physics.arcade.collide(this.ship.weapon.bullets, this.wallTop);
     game.physics.arcade.collide(this.ship.weapon.bullets, this.wallRight);
     game.physics.arcade.collide(this.ship.weapon.bullets, this.wallBottom);
+
+    this.ship.body.immovable = true;
     game.physics.arcade.collide(this.ship.weapon.bullets, this.ship, this.shipBulletHitShip, null, this);
+    this.ship.body.immovable = false;
 
     game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
     game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);

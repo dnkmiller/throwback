@@ -4234,7 +4234,7 @@ module.exports = Math.scale || function scale(x, inLow, inHigh, outLow, outHigh)
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! babel-polyfill */129);
-module.exports = __webpack_require__(/*! C:\Projects\gamejam\src\main.js */331);
+module.exports = __webpack_require__(/*! C:\Projects\throwback2\src\main.js */331);
 
 
 /***/ }),
@@ -10969,6 +10969,7 @@ var _class = function (_Phaser$State) {
       game.physics.enable([this.wallTop, this.wallRight, this.wallBottom], _phaser2.default.Physics.ARCADE);
 
       this.wallTop.body.immovable = true;
+      this.wallTop.body.moves = false;
       this.wallTop.body.allowGravity = false;
 
       this.wallRight.body.immovable = true;
@@ -11020,7 +11021,10 @@ var _class = function (_Phaser$State) {
       game.physics.arcade.collide(this.ship.weapon.bullets, this.wallTop);
       game.physics.arcade.collide(this.ship.weapon.bullets, this.wallRight);
       game.physics.arcade.collide(this.ship.weapon.bullets, this.wallBottom);
+
+      this.ship.body.immovable = true;
       game.physics.arcade.collide(this.ship.weapon.bullets, this.ship, this.shipBulletHitShip, null, this);
+      this.ship.body.immovable = false;
 
       game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
       game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
