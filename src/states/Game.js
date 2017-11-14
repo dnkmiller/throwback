@@ -2,6 +2,7 @@
 import Phaser from 'phaser'
 import Ship from '../sprites/ship'
 import Enemy from './enemy'
+import Panel from '../sprites/panel'
 
 export default class extends Phaser.State {
   init(levelData) {
@@ -53,17 +54,17 @@ export default class extends Phaser.State {
 
     this.enemies3 = new Enemy(this.game, 'spacehorse');
     this.enemies3.sendAnotherEnemy();
+
+    //this.game.paused = true;
+    this.panel = new Panel({
+      game: this.game,
+      x: 1000,
+      y: this.world.centerY,
+      asset: 'panel'
+    });
+    this.game.add.existing(this.panel);
+    this.panel.start();
   }
-
-  // sendAnotherEnemy() {
-  //   this.enemies.launch();
-
-  //   var MIN_ENEMY_SPACING = 300;
-  //   var MAX_ENEMY_SPACING = 3000;
-
-  //   //  Send another enemy soon
-  //   this.game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), this.sendAnotherEnemy, this);
-  // }
 
   createBoundaryWalls() {
     this.wallTop = game.add.tileSprite((8 * 4), (12 * 4), game.width - (16 * 4), 8, 'empty');

@@ -25,6 +25,7 @@ export default class extends Phaser.State {
     this.load.spritesheet('falafla', 'assets/images/falafla.png', 32, 32);
     this.load.spritesheet('oculus', 'assets/images/oculus.png', 32, 32);
     this.load.spritesheet('spacehorse', 'assets/images/spacehorse.png', 32, 32);
+    this.load.image('panel', 'assets/images/panel.png');
   }
 
   create() {

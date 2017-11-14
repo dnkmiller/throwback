@@ -10812,6 +10812,7 @@ var _class = function (_Phaser$State) {
       this.load.spritesheet('falafla', 'assets/images/falafla.png', 32, 32);
       this.load.spritesheet('oculus', 'assets/images/oculus.png', 32, 32);
       this.load.spritesheet('spacehorse', 'assets/images/spacehorse.png', 32, 32);
+      this.load.image('panel', 'assets/images/panel.png');
     }
   }, {
     key: 'create',
@@ -10859,7 +10860,7 @@ var centerGameObjects = exports.centerGameObjects = function centerGameObjects(o
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -10876,6 +10877,10 @@ var _enemy = __webpack_require__(/*! ./enemy */ 342);
 
 var _enemy2 = _interopRequireDefault(_enemy);
 
+var _panel = __webpack_require__(/*! ../sprites/panel */ 346);
+
+var _panel2 = _interopRequireDefault(_panel);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10886,168 +10891,167 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var _class = function (_Phaser$State) {
-  _inherits(_class, _Phaser$State);
+    _inherits(_class, _Phaser$State);
 
-  function _class() {
-    _classCallCheck(this, _class);
+    function _class() {
+        _classCallCheck(this, _class);
 
-    return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-  }
-
-  _createClass(_class, [{
-    key: 'init',
-    value: function init(levelData) {
-      if (!levelData) {
-        this.levelData = { level: 1 };
-      } else this.levelData = levelData;
-    }
-  }, {
-    key: 'preload',
-    value: function preload() {}
-  }, {
-    key: 'create',
-    value: function create() {
-      var _this2 = this;
-
-      game.physics.startSystem(_phaser2.default.Physics.ARCADE);
-
-      this.score = 0;
-
-      this.ship = new _ship2.default({
-        game: this.game,
-        x: this.world.centerX + 100,
-        y: this.world.centerY,
-        asset: 'ship'
-      });
-
-      this.style = { font: "24px Arial", fill: "#ffffff", align: "center" };
-
-      this.scoreText = game.add.text(10, 10, "Score: " + this.score, this.style);
-      this.levelText = game.add.text(250, 10, "Level: " + this.levelData.level, this.style);
-      this.hpText = game.add.text(450, 10, "HP: " + this.ship.hp, this.style);
-
-      this.game.add.existing(this.ship);
-
-      this.createBoundaryWalls();
-
-      // keep the spacebar from propogating up to the browser
-      this.game.input.keyboard.addKeyCapture([_phaser2.default.Keyboard.SPACEBAR]);
-
-      // add keyboard controls
-      var fireKey = this.input.keyboard.addKey(_phaser2.default.Keyboard.Z);
-      fireKey.onDown.add(function () {
-        _this2.ship.fire();
-      });
-
-      this.enemies = new _enemy2.default(this.game, 'falafla');
-      this.enemies.sendAnotherEnemy();
-
-      this.enemies2 = new _enemy2.default(this.game, 'oculus');
-      this.enemies2.sendAnotherEnemy();
-
-      this.enemies3 = new _enemy2.default(this.game, 'spacehorse');
-      this.enemies3.sendAnotherEnemy();
+        return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
     }
 
-    // sendAnotherEnemy() {
-    //   this.enemies.launch();
+    _createClass(_class, [{
+        key: 'init',
+        value: function init(levelData) {
+            if (!levelData) {
+                this.levelData = { level: 1 };
+            } else this.levelData = levelData;
+        }
+    }, {
+        key: 'preload',
+        value: function preload() {}
+    }, {
+        key: 'create',
+        value: function create() {
+            var _this2 = this;
 
-    //   var MIN_ENEMY_SPACING = 300;
-    //   var MAX_ENEMY_SPACING = 3000;
+            game.physics.startSystem(_phaser2.default.Physics.ARCADE);
 
-    //   //  Send another enemy soon
-    //   this.game.time.events.add(game.rnd.integerInRange(MIN_ENEMY_SPACING, MAX_ENEMY_SPACING), this.sendAnotherEnemy, this);
-    // }
+            this.score = 0;
 
-  }, {
-    key: 'createBoundaryWalls',
-    value: function createBoundaryWalls() {
-      this.wallTop = game.add.tileSprite(8 * 4, 12 * 4, game.width - 16 * 4, 8, 'empty');
-      this.wallRight = game.add.tileSprite(game.width - 8 * 4, 12 * 4, 8, game.height - 18 * 4, 'empty');
-      this.wallBottom = game.add.tileSprite(8 * 4, game.height - 8 * 4, game.width - 16 * 4, 8, 'empty');
+            this.ship = new _ship2.default({
+                game: this.game,
+                x: this.world.centerX + 100,
+                y: this.world.centerY,
+                asset: 'ship'
+            });
 
-      game.physics.enable([this.wallTop, this.wallRight, this.wallBottom], _phaser2.default.Physics.ARCADE);
+            this.style = { font: "24px Arial", fill: "#ffffff", align: "center" };
 
-      this.wallTop.body.immovable = true;
-      this.wallTop.body.moves = false;
-      this.wallTop.body.allowGravity = false;
+            this.scoreText = game.add.text(10, 10, "Score: " + this.score, this.style);
+            this.levelText = game.add.text(250, 10, "Level: " + this.levelData.level, this.style);
+            this.hpText = game.add.text(450, 10, "HP: " + this.ship.hp, this.style);
 
-      this.wallRight.body.immovable = true;
-      this.wallRight.body.allowGravity = false;
+            this.game.add.existing(this.ship);
 
-      this.wallBottom.body.immovable = true;
-      this.wallBottom.body.allowGravity = false;
-    }
-  }, {
-    key: 'hitEnemy',
-    value: function hitEnemy(bullet, enemy) {
-      this.enemies.destroy(enemy);
-      bullet.kill();
+            this.createBoundaryWalls();
 
-      this.score += 10;
-      this.scoreText.setText("Score: " + this.score);
-    }
-  }, {
-    key: 'shipBulletHitShip',
-    value: function shipBulletHitShip(ship, bullet) {
-      ship.doDamage(10);
-      this.hpText.setText("HP: " + this.ship.hp);
-    }
-  }, {
-    key: 'enemyHitShip',
-    value: function enemyHitShip(ship, enemy) {
-      game.camera.shake(0.008, 200);
-      ship.doDamage(20);
-      this.enemies.destroy(enemy);
-      this.hpText.setText("HP: " + this.ship.hp);
-    }
-  }, {
-    key: 'advanceLevel',
-    value: function advanceLevel() {
-      this.levelData.level++;
-      this.enemies.advanceLevel();
+            // keep the spacebar from propogating up to the browser
+            this.game.input.keyboard.addKeyCapture([_phaser2.default.Keyboard.SPACEBAR]);
 
-      var l = "Level: " + this.levelData.level;
-      this.levelText.setText(l);
+            // add keyboard controls
+            var fireKey = this.input.keyboard.addKey(_phaser2.default.Keyboard.Z);
+            fireKey.onDown.add(function () {
+                _this2.ship.fire();
+            });
 
-      this.state.start('NextLevel', true, false, this.levelData);
-    }
-  }, {
-    key: 'update',
-    value: function update() {
-      game.physics.arcade.collide(this.ship, this.wallTop);
-      game.physics.arcade.collide(this.ship, this.wallBottom);
+            this.enemies = new _enemy2.default(this.game, 'falafla');
+            this.enemies.sendAnotherEnemy();
 
-      game.physics.arcade.collide(this.ship.weapon.bullets, this.wallTop);
-      game.physics.arcade.collide(this.ship.weapon.bullets, this.wallRight);
-      game.physics.arcade.collide(this.ship.weapon.bullets, this.wallBottom);
+            this.enemies2 = new _enemy2.default(this.game, 'oculus');
+            this.enemies2.sendAnotherEnemy();
 
-      this.ship.body.immovable = true;
-      game.physics.arcade.collide(this.ship.weapon.bullets, this.ship, this.shipBulletHitShip, null, this);
-      this.ship.body.immovable = false;
+            this.enemies3 = new _enemy2.default(this.game, 'spacehorse');
+            this.enemies3.sendAnotherEnemy();
 
-      game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
-      game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
-      game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies3.enemies, this.hitEnemy, null, this);
+            //this.game.paused = true;
+            this.panel = new _panel2.default({
+                game: this.game,
+                x: 1000,
+                y: this.world.centerY,
+                asset: 'panel'
+            });
+            this.game.add.existing(this.panel);
+            this.panel.start();
+        }
+    }, {
+        key: 'createBoundaryWalls',
+        value: function createBoundaryWalls() {
+            this.wallTop = game.add.tileSprite(8 * 4, 12 * 4, game.width - 16 * 4, 8, 'empty');
+            this.wallRight = game.add.tileSprite(game.width - 8 * 4, 12 * 4, 8, game.height - 18 * 4, 'empty');
+            this.wallBottom = game.add.tileSprite(8 * 4, game.height - 8 * 4, game.width - 16 * 4, 8, 'empty');
 
-      game.physics.arcade.collide(this.ship, this.enemies.enemies, this.enemyHitShip, null, this);
+            game.physics.enable([this.wallTop, this.wallRight, this.wallBottom], _phaser2.default.Physics.ARCADE);
 
-      this.ship.update();
+            this.wallTop.body.immovable = true;
+            this.wallTop.body.moves = false;
+            this.wallTop.body.allowGravity = false;
 
-      if (this.enemies.enemiesLeft == 0) {
-        this.advanceLevel();
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      if (true) {
-        //this.game.debug.bodyInfo(this.b, 32, 32);
-      }
-    }
-  }]);
+            this.wallRight.body.immovable = true;
+            this.wallRight.body.allowGravity = false;
 
-  return _class;
+            this.wallBottom.body.immovable = true;
+            this.wallBottom.body.allowGravity = false;
+        }
+    }, {
+        key: 'hitEnemy',
+        value: function hitEnemy(bullet, enemy) {
+            this.enemies.destroy(enemy);
+            bullet.kill();
+
+            this.score += 10;
+            this.scoreText.setText("Score: " + this.score);
+        }
+    }, {
+        key: 'shipBulletHitShip',
+        value: function shipBulletHitShip(ship, bullet) {
+            ship.doDamage(10);
+            this.hpText.setText("HP: " + this.ship.hp);
+        }
+    }, {
+        key: 'enemyHitShip',
+        value: function enemyHitShip(ship, enemy) {
+            game.camera.shake(0.008, 200);
+            ship.doDamage(20);
+            this.enemies.destroy(enemy);
+            this.hpText.setText("HP: " + this.ship.hp);
+        }
+    }, {
+        key: 'advanceLevel',
+        value: function advanceLevel() {
+            this.levelData.level++;
+            this.enemies.advanceLevel();
+
+            var l = "Level: " + this.levelData.level;
+            this.levelText.setText(l);
+
+            this.state.start('NextLevel', true, false, this.levelData);
+        }
+    }, {
+        key: 'update',
+        value: function update() {
+            game.physics.arcade.collide(this.ship, this.wallTop);
+            game.physics.arcade.collide(this.ship, this.wallBottom);
+
+            game.physics.arcade.collide(this.ship.weapon.bullets, this.wallTop);
+            game.physics.arcade.collide(this.ship.weapon.bullets, this.wallRight);
+            game.physics.arcade.collide(this.ship.weapon.bullets, this.wallBottom);
+
+            this.ship.body.immovable = true;
+            game.physics.arcade.collide(this.ship.weapon.bullets, this.ship, this.shipBulletHitShip, null, this);
+            this.ship.body.immovable = false;
+
+            game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
+            game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
+            game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies3.enemies, this.hitEnemy, null, this);
+
+            game.physics.arcade.collide(this.ship, this.enemies.enemies, this.enemyHitShip, null, this);
+
+            this.ship.update();
+
+            if (this.enemies.enemiesLeft == 0) {
+                this.advanceLevel();
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (true) {
+                //this.game.debug.bodyInfo(this.b, 32, 32);
+            }
+        }
+    }]);
+
+    return _class;
 }(_phaser2.default.State);
 
 exports.default = _class;
@@ -11441,6 +11445,74 @@ exports.default = {
   gameHeight: 600,
   localStorageName: 'phaseres6webpack'
 };
+
+/***/ }),
+/* 345 */,
+/* 346 */
+/*!******************************!*\
+  !*** ./src/sprites/panel.js ***!
+  \******************************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _phaser = __webpack_require__(/*! phaser */ 29);
+
+var _phaser2 = _interopRequireDefault(_phaser);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_Phaser$Sprite) {
+  _inherits(_class, _Phaser$Sprite);
+
+  function _class(_ref) {
+    var game = _ref.game,
+        x = _ref.x,
+        y = _ref.y,
+        asset = _ref.asset;
+
+    _classCallCheck(this, _class);
+
+    var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, game, x, y, asset));
+
+    _this.anchor.setTo(0.5);
+
+    _this.tweenA = _this.game.add.tween(_this).to({ x: _this.game.world.centerX }, 500, "Quart.easeOut");
+    _this.tweenB = _this.game.add.tween(_this).to({ x: -256 }, 500, "Quart.easeIn");
+
+    _this.tweenA.chain(_this.tweenB);
+    return _this;
+  }
+
+  _createClass(_class, [{
+    key: "start",
+    value: function start() {
+      this.tweenA.start();
+    }
+  }, {
+    key: "update",
+    value: function update() {}
+  }]);
+
+  return _class;
+}(_phaser2.default.Sprite);
+
+exports.default = _class;
 
 /***/ })
 ],[128]);
