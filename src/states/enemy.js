@@ -4,7 +4,6 @@ export default class Enemy {
     constructor(game, asset) {
         this.game = game;
 
-
         this.enemiesLeft = 2;
         this.minVelocityX = 10;
         this.minVelocityY = 0;
@@ -32,7 +31,6 @@ export default class Enemy {
 
         //this.enemies.setAll('animations.add', 'kaboom');
     }
-
 
     advanceLevel() {
         this.enemiesLeft = 10;

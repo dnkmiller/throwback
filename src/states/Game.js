@@ -12,7 +12,6 @@ export default class extends Phaser.State {
   create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-
     this.ship = new Ship({
       game: this.game,
       x: this.world.centerX + 100,
@@ -39,17 +38,24 @@ export default class extends Phaser.State {
       this.ship.fire();
     });
 
-    this.enemies = new Enemy(this.game, 'falafla');
-    this.enemies.sendAnotherEnemy();
+    this.levelEnemies = new Array();
+    var level = State.Levels[State.CurrentGame.level];
+    level.Enemies.map(enemy => {
+      this.levelEnemies.push(new Enemy(this.game, enemy.Name));
+    });
 
-    this.enemies2 = new Enemy(this.game, 'oculus');
-    this.enemies2.sendAnotherEnemy();
+    this.levelEnemies.map(enemy => {
+      enemy.sendAnotherEnemy();
+    });
 
-    this.enemies3 = new Enemy(this.game, 'spacehorse');
-    this.enemies3.sendAnotherEnemy();
+    // this.enemies = new Enemy(this.game, 'falafla');
+    // this.enemies.sendAnotherEnemy();
 
-    //this.game.paused = true;
+    // this.enemies2 = new Enemy(this.game, 'oculus');
+    // this.enemies2.sendAnotherEnemy();
 
+    // this.enemies3 = new Enemy(this.game, 'spacehorse');
+    // this.enemies3.sendAnotherEnemy();
   }
 
   createBoundaryWalls() {
@@ -71,7 +77,9 @@ export default class extends Phaser.State {
   }
 
   hitEnemy(bullet, enemy) {
-    this.enemies.destroy(enemy);
+    var parent = enemy.parent;
+    parent.destroy(enemy);
+    //enemy.destroy();
     bullet.kill();
 
     State.CurrentGame.score += 10;
@@ -112,17 +120,21 @@ export default class extends Phaser.State {
     game.physics.arcade.collide(this.ship.weapon.bullets, this.ship, this.shipBulletHitShip, null, this);
     this.ship.body.immovable = false;
 
-    game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
-    game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
-    game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies3.enemies, this.hitEnemy, null, this);
+    this.levelEnemies.map(enemy => {
+      game.physics.arcade.overlap(this.ship.weapon.bullets, enemy.enemies, this.hitEnemy, null, this);
+      //game.physics.arcade.collide(this.ship, enemy.enemies, this.enemyHitShip, null, this);
+    });
 
-    game.physics.arcade.collide(this.ship, this.enemies.enemies, this.enemyHitShip, null, this);
+    // game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
+    // game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
+    // game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies3.enemies, this.hitEnemy, null, this);
+
 
     this.ship.update();
 
-    if (this.enemies.enemiesLeft == 0) {
-      this.advanceLevel();
-    }
+    // if (this.enemies.enemiesLeft == 0) {
+    //   this.advanceLevel();
+    // }
   }
 
   render() {

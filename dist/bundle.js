@@ -10938,16 +10938,24 @@ var _class = function (_Phaser$State) {
                 _this2.ship.fire();
             });
 
-            this.enemies = new _enemy2.default(this.game, 'falafla');
-            this.enemies.sendAnotherEnemy();
+            this.levelEnemies = new Array();
+            var level = _Config2.default.Levels[_Config2.default.CurrentGame.level];
+            level.Enemies.map(function (enemy) {
+                _this2.levelEnemies.push(new _enemy2.default(_this2.game, enemy.Name));
+            });
 
-            this.enemies2 = new _enemy2.default(this.game, 'oculus');
-            this.enemies2.sendAnotherEnemy();
+            this.levelEnemies.map(function (enemy) {
+                enemy.sendAnotherEnemy();
+            });
 
-            this.enemies3 = new _enemy2.default(this.game, 'spacehorse');
-            this.enemies3.sendAnotherEnemy();
+            // this.enemies = new Enemy(this.game, 'falafla');
+            // this.enemies.sendAnotherEnemy();
 
-            //this.game.paused = true;
+            // this.enemies2 = new Enemy(this.game, 'oculus');
+            // this.enemies2.sendAnotherEnemy();
+
+            // this.enemies3 = new Enemy(this.game, 'spacehorse');
+            // this.enemies3.sendAnotherEnemy();
         }
     }, {
         key: 'createBoundaryWalls',
@@ -10971,7 +10979,9 @@ var _class = function (_Phaser$State) {
     }, {
         key: 'hitEnemy',
         value: function hitEnemy(bullet, enemy) {
-            this.enemies.destroy(enemy);
+            var parent = enemy.parent;
+            parent.destroy(enemy);
+            //enemy.destroy();
             bullet.kill();
 
             _Config2.default.CurrentGame.score += 10;
@@ -11005,6 +11015,8 @@ var _class = function (_Phaser$State) {
     }, {
         key: 'update',
         value: function update() {
+            var _this3 = this;
+
             game.physics.arcade.collide(this.ship, this.wallTop);
             game.physics.arcade.collide(this.ship, this.wallBottom);
 
@@ -11016,17 +11028,21 @@ var _class = function (_Phaser$State) {
             game.physics.arcade.collide(this.ship.weapon.bullets, this.ship, this.shipBulletHitShip, null, this);
             this.ship.body.immovable = false;
 
-            game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
-            game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
-            game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies3.enemies, this.hitEnemy, null, this);
+            this.levelEnemies.map(function (enemy) {
+                game.physics.arcade.overlap(_this3.ship.weapon.bullets, enemy.enemies, _this3.hitEnemy, null, _this3);
+                //game.physics.arcade.collide(this.ship, enemy.enemies, this.enemyHitShip, null, this);
+            });
 
-            game.physics.arcade.collide(this.ship, this.enemies.enemies, this.enemyHitShip, null, this);
+            // game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies.enemies, this.hitEnemy, null, this);
+            // game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies2.enemies, this.hitEnemy, null, this);
+            // game.physics.arcade.overlap(this.ship.weapon.bullets, this.enemies3.enemies, this.hitEnemy, null, this);
+
 
             this.ship.update();
 
-            if (this.enemies.enemiesLeft == 0) {
-                this.advanceLevel();
-            }
+            // if (this.enemies.enemiesLeft == 0) {
+            //   this.advanceLevel();
+            // }
         }
     }, {
         key: 'render',
@@ -11533,9 +11549,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
     CurrentGame: {
-        level: 1,
+        level: 0,
         score: 0
-    }
+    },
+    Levels: [{ Name: 'Level 1', Enemies: [{ Name: 'falafla', Total: 5 }] }, { Name: 'Level 2', Enemies: [{ Name: 'falafla', Total: 5 }, { Name: 'oculus', Total: 5 }] }, { Name: 'Level 3', Enemies: [{ Name: 'falafla', Total: 5 }, { Name: 'oculus', Total: 5 }, { Name: 'spacehorse', Total: 5 }] }]
 };
 
 /***/ })
