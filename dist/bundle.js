@@ -617,7 +617,8 @@ module.exports = function (TYPE, $create) {
 
 
 /***/ }),
-/* 27 */
+/* 27 */,
+/* 28 */
 /*!******************************************************!*\
   !*** ./node_modules/core-js/modules/_typed-array.js ***!
   \******************************************************/
@@ -1109,7 +1110,7 @@ if (__webpack_require__(/*! ./_descriptors */ 6)) {
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /*!***************************************************!*\
   !*** ./node_modules/core-js/modules/_metadata.js ***!
   \***************************************************/
@@ -1171,7 +1172,6 @@ module.exports = {
 
 
 /***/ }),
-/* 29 */,
 /* 30 */
 /*!***********************************************!*\
   !*** ./node_modules/core-js/modules/_meta.js ***!
@@ -4234,7 +4234,7 @@ module.exports = Math.scale || function scale(x, inLow, inHigh, outLow, outHigh)
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! babel-polyfill */129);
-module.exports = __webpack_require__(/*! C:\Projects\throwback2\src\main.js */331);
+module.exports = __webpack_require__(/*! C:\Projects\throwback\src\main.js */331);
 
 
 /***/ }),
@@ -7732,7 +7732,7 @@ $export($export.G + $export.W + $export.F * !__webpack_require__(/*! ./_typed */
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Int8', 1, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Int8', 1, function (init) {
   return function Int8Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7748,7 +7748,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Int8', 1, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Uint8', 1, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Uint8', 1, function (init) {
   return function Uint8Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7764,7 +7764,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Uint8', 1, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Uint8', 1, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Uint8', 1, function (init) {
   return function Uint8ClampedArray(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7780,7 +7780,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Uint8', 1, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Int16', 2, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Int16', 2, function (init) {
   return function Int16Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7796,7 +7796,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Int16', 2, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Uint16', 2, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Uint16', 2, function (init) {
   return function Uint16Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7812,7 +7812,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Uint16', 2, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Int32', 4, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Int32', 4, function (init) {
   return function Int32Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7828,7 +7828,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Int32', 4, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Uint32', 4, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Uint32', 4, function (init) {
   return function Uint32Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7844,7 +7844,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Uint32', 4, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Float32', 4, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Float32', 4, function (init) {
   return function Float32Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -7860,7 +7860,7 @@ __webpack_require__(/*! ./_typed-array */ 27)('Float32', 4, function (init) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./_typed-array */ 27)('Float64', 8, function (init) {
+__webpack_require__(/*! ./_typed-array */ 28)('Float64', 8, function (init) {
   return function Float64Array(data, byteOffset, length) {
     return init(this, data, byteOffset, length);
   };
@@ -9203,7 +9203,7 @@ $export($export.S, 'Promise', { 'try': function (callbackfn) {
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var toMetaKey = metadata.key;
 var ordinaryDefineOwnMetadata = metadata.set;
@@ -9222,7 +9222,7 @@ metadata.exp({ defineMetadata: function defineMetadata(metadataKey, metadataValu
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var toMetaKey = metadata.key;
 var getOrCreateMetadataMap = metadata.map;
@@ -9248,7 +9248,7 @@ metadata.exp({ deleteMetadata: function deleteMetadata(metadataKey, target /* , 
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var getPrototypeOf = __webpack_require__(/*! ./_object-gpo */ 17);
 var ordinaryHasOwnMetadata = metadata.has;
@@ -9278,7 +9278,7 @@ metadata.exp({ getMetadata: function getMetadata(metadataKey, target /* , target
 
 var Set = __webpack_require__(/*! ./es6.set */ 114);
 var from = __webpack_require__(/*! ./_array-from-iterable */ 123);
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var getPrototypeOf = __webpack_require__(/*! ./_object-gpo */ 17);
 var ordinaryOwnMetadataKeys = metadata.keys;
@@ -9306,7 +9306,7 @@ metadata.exp({ getMetadataKeys: function getMetadataKeys(target /* , targetKey *
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var ordinaryGetOwnMetadata = metadata.get;
 var toMetaKey = metadata.key;
@@ -9326,7 +9326,7 @@ metadata.exp({ getOwnMetadata: function getOwnMetadata(metadataKey, target /* , 
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var ordinaryOwnMetadataKeys = metadata.keys;
 var toMetaKey = metadata.key;
@@ -9345,7 +9345,7 @@ metadata.exp({ getOwnMetadataKeys: function getOwnMetadataKeys(target /* , targe
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var getPrototypeOf = __webpack_require__(/*! ./_object-gpo */ 17);
 var ordinaryHasOwnMetadata = metadata.has;
@@ -9372,7 +9372,7 @@ metadata.exp({ hasMetadata: function hasMetadata(metadataKey, target /* , target
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var metadata = __webpack_require__(/*! ./_metadata */ 28);
+var metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var ordinaryHasOwnMetadata = metadata.has;
 var toMetaKey = metadata.key;
@@ -9392,7 +9392,7 @@ metadata.exp({ hasOwnMetadata: function hasOwnMetadata(metadataKey, target /* , 
 /*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $metadata = __webpack_require__(/*! ./_metadata */ 28);
+var $metadata = __webpack_require__(/*! ./_metadata */ 29);
 var anObject = __webpack_require__(/*! ./_an-object */ 1);
 var aFunction = __webpack_require__(/*! ./_a-function */ 10);
 var toMetaKey = $metadata.key;
@@ -10572,7 +10572,7 @@ __webpack_require__(/*! pixi */ 125);
 
 __webpack_require__(/*! p2 */ 126);
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -10588,11 +10588,11 @@ var _Game = __webpack_require__(/*! ./states/Game */ 339);
 
 var _Game2 = _interopRequireDefault(_Game);
 
-var _NextLevel = __webpack_require__(/*! ./states/NextLevel */ 343);
+var _NextLevel = __webpack_require__(/*! ./states/NextLevel */ 344);
 
 var _NextLevel2 = _interopRequireDefault(_NextLevel);
 
-var _config = __webpack_require__(/*! ./config */ 344);
+var _config = __webpack_require__(/*! ./config */ 345);
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -10678,7 +10678,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -10763,7 +10763,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -10865,7 +10865,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -10877,9 +10877,9 @@ var _enemy = __webpack_require__(/*! ./enemy */ 342);
 
 var _enemy2 = _interopRequireDefault(_enemy);
 
-var _panel = __webpack_require__(/*! ../sprites/panel */ 346);
+var _Config = __webpack_require__(/*! ./Config.js */ 348);
 
-var _panel2 = _interopRequireDefault(_panel);
+var _Config2 = _interopRequireDefault(_Config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10901,11 +10901,7 @@ var _class = function (_Phaser$State) {
 
     _createClass(_class, [{
         key: 'init',
-        value: function init(levelData) {
-            if (!levelData) {
-                this.levelData = { level: 1 };
-            } else this.levelData = levelData;
-        }
+        value: function init() {}
     }, {
         key: 'preload',
         value: function preload() {}
@@ -10916,8 +10912,6 @@ var _class = function (_Phaser$State) {
 
             game.physics.startSystem(_phaser2.default.Physics.ARCADE);
 
-            this.score = 0;
-
             this.ship = new _ship2.default({
                 game: this.game,
                 x: this.world.centerX + 100,
@@ -10927,8 +10921,8 @@ var _class = function (_Phaser$State) {
 
             this.style = { font: "24px Arial", fill: "#ffffff", align: "center" };
 
-            this.scoreText = game.add.text(10, 10, "Score: " + this.score, this.style);
-            this.levelText = game.add.text(250, 10, "Level: " + this.levelData.level, this.style);
+            this.scoreText = game.add.text(10, 10, "Score: " + _Config2.default.CurrentGame.score, this.style);
+            this.levelText = game.add.text(250, 10, "Level: " + _Config2.default.CurrentGame.level, this.style);
             this.hpText = game.add.text(450, 10, "HP: " + this.ship.hp, this.style);
 
             this.game.add.existing(this.ship);
@@ -10954,14 +10948,6 @@ var _class = function (_Phaser$State) {
             this.enemies3.sendAnotherEnemy();
 
             //this.game.paused = true;
-            this.panel = new _panel2.default({
-                game: this.game,
-                x: 1000,
-                y: this.world.centerY,
-                asset: 'panel'
-            });
-            this.game.add.existing(this.panel);
-            this.panel.start();
         }
     }, {
         key: 'createBoundaryWalls',
@@ -10988,8 +10974,8 @@ var _class = function (_Phaser$State) {
             this.enemies.destroy(enemy);
             bullet.kill();
 
-            this.score += 10;
-            this.scoreText.setText("Score: " + this.score);
+            _Config2.default.CurrentGame.score += 10;
+            this.scoreText.setText("Score: " + _Config2.default.CurrentGame.score);
         }
     }, {
         key: 'shipBulletHitShip',
@@ -11008,13 +10994,13 @@ var _class = function (_Phaser$State) {
     }, {
         key: 'advanceLevel',
         value: function advanceLevel() {
-            this.levelData.level++;
+            _Config2.default.CurrentGame.level++;
             this.enemies.advanceLevel();
 
-            var l = "Level: " + this.levelData.level;
+            var l = "Level: " + _Config2.default.CurrentGame.level;
             this.levelText.setText(l);
 
-            this.state.start('NextLevel', true, false, this.levelData);
+            this.state.start('NextLevel', true, false);
         }
     }, {
         key: 'update',
@@ -11074,7 +11060,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -11202,7 +11188,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -11259,7 +11245,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -11273,7 +11259,7 @@ var Enemy = function () {
 
         this.game = game;
 
-        this.enemiesLeft = 100;
+        this.enemiesLeft = 2;
         this.minVelocityX = 10;
         this.minVelocityY = 0;
         this.maxVelocityX = 50;
@@ -11355,100 +11341,6 @@ exports.default = Enemy;
 
 /***/ }),
 /* 343 */
-/*!*********************************!*\
-  !*** ./src/states/NextLevel.js ***!
-  \*********************************/
-/*! dynamic exports provided */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _phaser = __webpack_require__(/*! phaser */ 29);
-
-var _phaser2 = _interopRequireDefault(_phaser);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _class = function (_Phaser$State) {
-    _inherits(_class, _Phaser$State);
-
-    function _class() {
-        _classCallCheck(this, _class);
-
-        return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-    }
-
-    _createClass(_class, [{
-        key: "init",
-        value: function init(levelData) {
-            this.levelData = levelData;
-        }
-    }, {
-        key: "preload",
-        value: function preload() {}
-    }, {
-        key: "create",
-        value: function create() {
-            var style = { font: "41px Arial", fill: "#fff", align: "center" };
-            var text = game.add.text(game.world.centerX, game.world.centerY, this.levelData.level, style);
-            text.anchor.set(0.5);
-            text.alpha = 0.1;
-
-            var tween = game.add.tween(text).to({ alpha: 1 }, 500, "Linear", true);
-            tween.onComplete.add(this.onComplete, this);
-        }
-    }, {
-        key: "onComplete",
-        value: function onComplete() {
-            game.time.events.add(_phaser2.default.Timer.SECOND * 1, function () {
-                this.state.start('Game', true, false, this.levelData);
-            }, this);
-        }
-    }]);
-
-    return _class;
-}(_phaser2.default.State);
-
-exports.default = _class;
-
-/***/ }),
-/* 344 */
-/*!***********************!*\
-  !*** ./src/config.js ***!
-  \***********************/
-/*! dynamic exports provided */
-/*! all exports used */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = {
-  gameWidth: 800,
-  gameHeight: 600,
-  localStorageName: 'phaseres6webpack'
-};
-
-/***/ }),
-/* 345 */,
-/* 346 */
 /*!******************************!*\
   !*** ./src/sprites/panel.js ***!
   \******************************/
@@ -11465,7 +11357,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _phaser = __webpack_require__(/*! phaser */ 29);
+var _phaser = __webpack_require__(/*! phaser */ 27);
 
 var _phaser2 = _interopRequireDefault(_phaser);
 
@@ -11513,6 +11405,138 @@ var _class = function (_Phaser$Sprite) {
 }(_phaser2.default.Sprite);
 
 exports.default = _class;
+
+/***/ }),
+/* 344 */
+/*!*********************************!*\
+  !*** ./src/states/NextLevel.js ***!
+  \*********************************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _phaser = __webpack_require__(/*! phaser */ 27);
+
+var _phaser2 = _interopRequireDefault(_phaser);
+
+var _panel = __webpack_require__(/*! ../sprites/panel */ 343);
+
+var _panel2 = _interopRequireDefault(_panel);
+
+var _Config = __webpack_require__(/*! ./Config.js */ 348);
+
+var _Config2 = _interopRequireDefault(_Config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _class = function (_Phaser$State) {
+    _inherits(_class, _Phaser$State);
+
+    function _class() {
+        _classCallCheck(this, _class);
+
+        return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+    }
+
+    _createClass(_class, [{
+        key: 'init',
+        value: function init() {}
+    }, {
+        key: 'preload',
+        value: function preload() {}
+    }, {
+        key: 'create',
+        value: function create() {
+            var style = { font: "41px Arial", fill: "#fff", align: "center" };
+            var text = game.add.text(game.world.centerX, game.world.centerY, _Config2.default.CurrentGame.level, style);
+            text.anchor.set(0.5);
+            text.alpha = 0.1;
+
+            var tween = game.add.tween(text).to({ alpha: 1 }, 500, "Linear", true);
+            tween.onComplete.add(this.onComplete, this);
+
+            // this.panel = new Panel({
+            //     game: this.game,
+            //     x: 1000,
+            //     y: this.world.centerY,
+            //     asset: 'panel'
+            // });
+            // this.game.add.existing(this.panel);
+            // this.panel.start();
+        }
+    }, {
+        key: 'onComplete',
+        value: function onComplete() {
+            game.time.events.add(_phaser2.default.Timer.SECOND * 1, function () {
+                this.state.start('Game', true, false);
+            }, this);
+        }
+    }]);
+
+    return _class;
+}(_phaser2.default.State);
+
+exports.default = _class;
+
+/***/ }),
+/* 345 */
+/*!***********************!*\
+  !*** ./src/config.js ***!
+  \***********************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  gameWidth: 800,
+  gameHeight: 600,
+  localStorageName: 'phaseres6webpack'
+};
+
+/***/ }),
+/* 346 */,
+/* 347 */,
+/* 348 */
+/*!******************************!*\
+  !*** ./src/states/Config.js ***!
+  \******************************/
+/*! dynamic exports provided */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    CurrentGame: {
+        level: 1,
+        score: 0
+    }
+};
 
 /***/ })
 ],[128]);

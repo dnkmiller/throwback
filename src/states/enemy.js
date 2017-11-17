@@ -5,7 +5,7 @@ export default class Enemy {
         this.game = game;
 
 
-        this.enemiesLeft = 100;
+        this.enemiesLeft = 2;
         this.minVelocityX = 10;
         this.minVelocityY = 0;
         this.maxVelocityX = 50;

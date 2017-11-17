@@ -1,24 +1,17 @@
 /* globals __DEV__ */
-import Phaser from 'phaser'
-import Ship from '../sprites/ship'
-import Enemy from './enemy'
-import Panel from '../sprites/panel'
+import Phaser from 'phaser';
+import Ship from '../sprites/ship';
+import Enemy from './enemy';
+import State from './Config.js';
 
 export default class extends Phaser.State {
-  init(levelData) {
-    if (!levelData) {
-      this.levelData = { level: 1 };
-    }
-    else
-      this.levelData = levelData;
+  init() { }
 
-  }
   preload() { }
 
   create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    this.score = 0;
 
     this.ship = new Ship({
       game: this.game,
@@ -29,8 +22,8 @@ export default class extends Phaser.State {
 
     this.style = { font: "24px Arial", fill: "#ffffff", align: "center" };
 
-    this.scoreText = game.add.text(10, 10, "Score: " + this.score, this.style);
-    this.levelText = game.add.text(250, 10, "Level: " + this.levelData.level, this.style);
+    this.scoreText = game.add.text(10, 10, "Score: " + State.CurrentGame.score, this.style);
+    this.levelText = game.add.text(250, 10, "Level: " + State.CurrentGame.level, this.style);
     this.hpText = game.add.text(450, 10, "HP: " + this.ship.hp, this.style);
 
     this.game.add.existing(this.ship);
@@ -56,14 +49,7 @@ export default class extends Phaser.State {
     this.enemies3.sendAnotherEnemy();
 
     //this.game.paused = true;
-    this.panel = new Panel({
-      game: this.game,
-      x: 1000,
-      y: this.world.centerY,
-      asset: 'panel'
-    });
-    this.game.add.existing(this.panel);
-    this.panel.start();
+
   }
 
   createBoundaryWalls() {
@@ -88,8 +74,8 @@ export default class extends Phaser.State {
     this.enemies.destroy(enemy);
     bullet.kill();
 
-    this.score += 10;
-    this.scoreText.setText("Score: " + this.score);
+    State.CurrentGame.score += 10;
+    this.scoreText.setText("Score: " + State.CurrentGame.score);
   }
 
   shipBulletHitShip(ship, bullet) {
@@ -105,13 +91,13 @@ export default class extends Phaser.State {
   }
 
   advanceLevel() {
-    this.levelData.level++;
+    State.CurrentGame.level++;
     this.enemies.advanceLevel();
 
-    var l = "Level: " + this.levelData.level;
+    var l = "Level: " + State.CurrentGame.level;
     this.levelText.setText(l);
 
-    this.state.start('NextLevel', true, false, this.levelData);
+    this.state.start('NextLevel', true, false);
   }
 
   update() {
